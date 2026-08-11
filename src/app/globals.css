@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* The digital blueprint / technical ledger palette */
-  --color-paper: #F4F4F5;       /* Technical white (off-white for reduced eye strain) */
-  --color-paper-dark: #E4E4E7;  /* Slightly darker for hovered rows/sections */
+  --color-paper: #E4DAC8;          /* Warm Manila / Sand */
+  --color-paper-dark: #D6C8B2;     /* Deeper Beige Hover/Cards */
   
-  --color-graphite: #18181B;       /* Almost black for high-contrast primary text/borders */
-  --color-graphite-light: #52525B; /* Steel gray for secondary text/metadata */
+  --color-graphite: #09090B;
+  --color-graphite-light: #52525B;
   
-  --color-blueprint: #2563EB;       /* Technical accent blue */
-  --color-blueprint-hover: #1D4ED8;
+  --color-blueprint: #DC2626;
+  --color-blueprint-hover: #BE123C;
   
-  --color-safety: #EA580C;          /* Secondary accent (construction/safety orange) */
+  --color-safety: #18181B;
 
-  /* Map Next.js fonts to Tailwind v4 font families */
   --font-sans: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 }
