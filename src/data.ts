@@ -12,7 +12,7 @@ export const PORTFOLIO_DATA = {
     email: "contact@example.com",
     linkedin: "https://linkedin.com/in/yourprofile",
     github: "https://github.com/yourusername",
-    resumeUrl: "/resume.pdf", // We will put a dummy PDF in the public folder later
+    resumeUrl: "/CV_Karouzos_EN.pdf",
   },
   experience: [
     {

@@ -32,7 +32,7 @@ export default function Navbar() {
 
         {/* Right: CV Download Button */}
         <a 
-          href="/resume.pdf" 
+          href="/CV_Karouzos_EN.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-2 font-mono text-xs tracking-widest structural-border px-4 py-2 hover:bg-graphite hover:text-paper transition-all duration-200"
