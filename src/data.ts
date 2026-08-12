@@ -25,8 +25,11 @@ export const PORTFOLIO_DATA = {
       location: "Ellinikon, Athens, Greece",
       achievements: [
         "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
+        "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
+        "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
+        "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
       ],
-      tools: [],
+      tools: ["tool 1", "tool 2", "tool 3"],
       images: ["/api/placeholder/800/1000", "/api/placeholder/800/1000"],
     },
     {
