@@ -18,7 +18,7 @@ export default function Credentials() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border structural-border">
           
           {/* LEFT COLUMN: Academic & Professional Development */}
-          <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r structural-border bg-paper flex flex-col">
+          <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r structural-border flex flex-col">
             
             {/* 1. Education Block */}
             <div className="p-8 md:p-12 border-b structural-border">
@@ -66,7 +66,7 @@ export default function Credentials() {
                       </span>
                     </div>
                     <span className="font-mono text-[11px] text-graphite-light uppercase">
-                      SYS.ORG: {trn.institution} // <span className="text-blueprint">{trn.duration}</span>
+                    {trn.institution} // <span className="text-blueprint">{trn.duration}</span>
                     </span>
                   </div>
                 ))}
@@ -103,7 +103,7 @@ export default function Credentials() {
           </div>
 
           {/* RIGHT COLUMN: Skills & Capabilities */}
-          <div className="lg:col-span-5 bg-black/[0.02] flex flex-col">
+          <div className="lg:col-span-5 flex flex-col">
             
             {/* 1. Technical Toolkit Block */}
             <div className="p-8 md:p-12 border-b structural-border">

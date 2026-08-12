@@ -47,8 +47,12 @@ export default function Footer() {
           </div>
 
           {/* Block 3: Action & Date */}
-          <div className="md:col-span-4 lg:col-span-1 p-6 flex flex-col justify-between bg-paper text-graphite hover:bg-blueprint hover:text-paper transition-colors group cursor-pointer relative overflow-hidden">
-            <a href={contact.resumeUrl} target="_blank" rel="noreferrer" className="w-full h-full flex flex-col justify-between relative z-10">
+          <div className="md:col-span-4 lg:col-span-1 p-6 flex flex-col justify-between bg-blueprint text-paper hover:bg-paper hover:text-graphite transition-colors group cursor-pointer relative overflow-hidden">
+            <a
+              href={contact.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full h-full flex flex-col justify-between relative z-10">
               <p className="text-[10px] mb-4 uppercase font-bold opacity-50">Action</p>
               <div className="text-right">
                 <p className="uppercase font-bold text-lg leading-none">GET</p>
@@ -57,7 +61,6 @@ export default function Footer() {
               </div>
             </a>
           </div>
-
         </div>
 
         {/* Bottom copyright */}

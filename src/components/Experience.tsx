@@ -39,36 +39,42 @@ export default function Experience() {
               }`}
             >
               
-              {/* Column 1: Year AND Company Logo */}
-              <div className="lg:col-span-2 flex flex-col items-start pt-1 gap-6">
+              {/* Column 1: Year */}
+              <div className="lg:col-span-2 pt-1">
                 <span className="font-mono text-xs tracking-widest text-graphite-light">
                   [{exp.year}]
                 </span>
-                {/* Logo is now here, larger, fully transparent (no box), and full color */}
-                {exp.logo && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img 
-                    src={exp.logo} 
-                    alt={exp.company} 
-                    className="w-20 md:w-24 object-contain opacity-80 group-hover:opacity-100 transition-opacity" 
-                  />
-                )}
               </div>
 
-              {/* Column 2: Role, Company, Location (Restored to clean look) */}
+              {/* Column 2: Role, Company, Location + Logo */}
               <div className="lg:col-span-4 flex flex-col gap-2 pt-1">
                 <h3 className="font-sans text-xl font-bold text-graphite leading-tight uppercase">
                   {exp.role}
                 </h3>
+
                 <div className="flex flex-col gap-1">
                   <span className="font-mono text-sm text-blueprint font-medium uppercase">
                     {exp.company}
                   </span>
+
                   <div className="flex items-center gap-1.5 text-graphite-light mt-1">
                     <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
-                    <span className="font-mono text-xs tracking-wide">{exp.location}</span>
+                    <span className="font-mono text-xs tracking-wide">
+                      {exp.location}
+                    </span>
                   </div>
                 </div>
+
+                {exp.logo && (
+                  <div className="w-32 h-20 mt-4 flex items-center justify-start">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Column 3: Achievements, Tools, and the new Toggle Button */}

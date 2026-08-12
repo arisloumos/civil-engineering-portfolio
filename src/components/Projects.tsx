@@ -4,7 +4,7 @@ import GalleryBlock from "./GalleryBlock"; // <--- We import our new tool here
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full py-20 border-b structural-border bg-paper">
+    <section id="projects" className="w-full py-20 border-b structural-border">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
