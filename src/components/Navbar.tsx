@@ -1,9 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Hexagon, Download } from "lucide-react";
 
 export default function Navbar() {
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  useEffect(() => {
+    // Find the footer by its ID
+    const footer = document.getElementById("contact");
+    if (!footer) return;
+
+    // Set up a sensor to watch the footer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        threshold: 0.01, // Trigger when at least 1% of the footer is visible
+      }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      if (footer) observer.unobserve(footer);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-graphite border-b structural-border">
+    <header 
+      // Merged your bg-graphite styling with the smooth sliding animation
+      className={`sticky top-0 z-50 bg-graphite border-b structural-border transition-all duration-500 ease-in-out ${
+        isFooterVisible ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Left: Logo / Initials */}
