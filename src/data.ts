@@ -21,18 +21,21 @@ export const PORTFOLIO_DATA = {
       year: "JUL 2026",
       role: "Civil Engineering Intern",
       company: "TERNA S.A.",
-      location: "Greece",
+      logo: "/terna-logo.png",
+      location: "Ellinikon, Athens, Greece",
       achievements: [
         "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
       ],
       tools: [],
+      images: ["/api/placeholder/800/1000", "/api/placeholder/800/1000"],
     },
     {
       id: "exp-02",
       year: "JUL 2025",
       role: "Civil Engineering Intern",
       company: "BBI - INTRAKAT RT JOINT VENTURE",
-      location: "Greece",
+      logo: "/aktor-logo.png",
+      location: "Ellinikon, Athens, Greece",
       achievements: [
         "Inspected concrete reinforcement during construction activities.",
         "Supervised concrete pouring and supported on-site execution.",
@@ -41,6 +44,7 @@ export const PORTFOLIO_DATA = {
         "Explored finishing solutions for architectural construction works.",
       ],
       tools: ["AutoCAD", "Microsoft Office"],
+      images: ["/ellinikon-tower.jpg", "/internship-gear.jpg"],
     },
   ],
 
@@ -53,7 +57,7 @@ export const PORTFOLIO_DATA = {
       description:
         "Conducted and presented a case study on the Agios Georgios Wind Farm operated by Terna Energy. The program also covered renewable energy sources and energy storage systems, with practical participation in photovoltaic park design and energy yield quantification using PVGIS.",
       tools: ["PVGIS", "Renewable Energy Analysis"],
-      image: "/api/placeholder/800/600",
+      images: ["/renewable-energies.jpg", "/granada-team.jpg"],
     },
   ],
 

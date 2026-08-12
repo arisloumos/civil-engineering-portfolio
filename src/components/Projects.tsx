@@ -1,5 +1,6 @@
 import { PORTFOLIO_DATA } from "@/data";
-import { ArrowUpRight, PenTool } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import GalleryBlock from "./GalleryBlock"; // <--- We import our new tool here
 
 export default function Projects() {
   return (
@@ -17,7 +18,6 @@ export default function Projects() {
         {/* Projects Container */}
         <div className="flex flex-col gap-16 md:gap-24">
           {PORTFOLIO_DATA.projects.map((project, index) => {
-            // Alternating layout: Even index = text left, Odd index = text right
             const isEven = index % 2 === 0;
 
             return (
@@ -26,39 +26,15 @@ export default function Projects() {
                 className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 group`}
               >
                 
-                {/* Visual / Image Block (occupies 7 columns on desktop) */}
-                <div className="w-full lg:w-7/12 relative aspect-[4/3] lg:aspect-[3/2] structural-border bg-paper-dark overflow-hidden">
-                  {/* 
-                    This checks if you are using the dummy placeholder. 
-                    If yes, it shows a cool CSS CAD blueprint. 
-                    If no, it will try to load your real image!
-                  */}
-                  {project.image.includes("placeholder") ? (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-graphite text-paper/50">
-                      {/* CSS Grid Pattern Overlay */}
-                      <div className="absolute inset-0 opacity-20" style={{ 
-                        backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-                        backgroundSize: '24px 24px' 
-                      }}></div>
-                      <PenTool className="w-12 h-12 mb-4 opacity-50" strokeWidth={1} />
-                      <p className="font-mono text-xs tracking-widest z-10">SYS.IMG // PENDING</p>
-                      <p className="font-mono text-[10px] opacity-50 z-10 mt-2">Replace in data.ts</p>
-                    </div>
-                  ) : (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
-                  )}
+                {/* Visual / Image Block Container */}
+                <div className="w-full lg:w-7/12 relative aspect-[4/3] lg:aspect-[3/2] structural-border bg-paper-dark">
                   
-                  {/* Decorative corner markers */}
-                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-paper m-2 opacity-50 z-10"></div>
-                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-paper m-2 opacity-50 z-10"></div>
+                  {/* --- WE USE THE NEW GALLERY BLOCK HERE --- */}
+                  <GalleryBlock images={project.images} />
+
                 </div>
 
-                {/* Text / Data Block (occupies 5 columns on desktop) */}
+                {/* Text / Data Block */}
                 <div className="w-full lg:w-5/12 flex flex-col justify-center">
                   
                   {/* Project Metadata */}
