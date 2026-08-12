@@ -1,14 +1,6 @@
 import { PORTFOLIO_DATA } from "@/data";
 import { Mail } from "lucide-react";
 
-// Custom SVG for GitHub matching the Lucide style
-const GithubIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.36 0-1.3-.4-2.4-1.2-3.3.1-.3.5-1.5-.1-3.3 0 0-1-.3-3.3 1.5a11.5 11.5 0 0 0-6 0C5.3 2.5 4.3 2.8 4.3 2.8c-.6 1.8-.2 3 .1 3.3C3.6 7 3.2 8.1 3.2 9.5c0 4.8 3 6 6 6.36a4.8 4.8 0 0 0-1 3.24V22" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
-
 // Custom SVG for LinkedIn matching the Lucide style
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -47,9 +39,6 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a href={contact.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-blueprint transition-colors">
                 <LinkedinIcon className="w-4 h-4" /> LINKEDIN
-              </a>
-              <a href={contact.github} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-blueprint transition-colors">
-                <GithubIcon className="w-4 h-4" /> GITHUB
               </a>
               <a href={`mailto:${contact.email}`} className="flex items-center gap-3 hover:text-blueprint transition-colors">
                 <Mail className="w-4 h-4" /> EMAIL

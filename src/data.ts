@@ -4,84 +4,110 @@ export const PORTFOLIO_DATA = {
   personal: {
     name: "KONSTANTINOS KAROUZOS",
     role: "Civil Engineering Undergraduate",
-    statement: "[Short, precise positioning statement emphasizing your focus, e.g., 'Dedicated to structural integrity, sustainable materials, and precise engineering methodologies.']",
-    location: "Athens, Greece", // Using your actual location!
-    coordinates: "LAT: 37.9838° N / LON: 23.7275° E", // Adds a nice surveying/engineering touch
+    statement:
+      "Civil Engineering undergraduate with practical experience in construction site operations, concrete works, and architectural trades, with a growing focus on structural engineering, renewable energy, and project management.",
+    location: "Athens, Greece",
+    coordinates: "LAT: 37.9838° N / LON: 23.7275° E",
   },
+
   contact: {
-    email: "contact@example.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    github: "https://github.com/yourusername",
+    email: "kckarouzos@gmail.com",
+    linkedin: "https://linkedin.com/in/konstantinos-karouzos",
     resumeUrl: "/CV_Karouzos_EN.pdf",
   },
   experience: [
     {
       id: "exp-01",
-      year: "2025 - PRESENT",
-      role: "[INTERN / JUNIOR ENGINEER]",
-      company: "[CONSTRUCTION OR DESIGN FIRM]",
-      location: "[CITY, COUNTRY]",
+      year: "JUL 2026",
+      role: "Civil Engineering Intern",
+      company: "TERNA S.A.",
+      location: "Greece",
       achievements: [
-        "[Assisted in structural calculations for a 3-story residential concrete building.]",
-        "[Drafted preliminary architectural and structural plans using AutoCAD.]",
-        "[Conducted site visits to verify rebar placement against technical specifications.]",
+        "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
       ],
-      tools: ["AutoCAD", "Excel", "Bluebeam"],
+      tools: [],
     },
     {
       id: "exp-02",
-      year: "2024 - 2025",
-      role: "[ENGINEERING ASSISTANT]",
-      company: "[UNIVERSITY RESEARCH LAB]",
-      location: "[CITY, COUNTRY]",
+      year: "JUL 2025",
+      role: "Civil Engineering Intern",
+      company: "BBI - INTRAKAT RT JOINT VENTURE",
+      location: "Greece",
       achievements: [
-        "[Prepared and tested 50+ concrete cylinder samples for compressive strength.]",
-        "[Compiled testing data into comprehensive reports for the lead researcher.]",
+        "Inspected concrete reinforcement during construction activities.",
+        "Supervised concrete pouring and supported on-site execution.",
+        "Monitored concrete curing operations and assisted with concrete repair works.",
+        "Performed pre-measurements for architectural trades.",
+        "Explored finishing solutions for architectural construction works.",
       ],
-      tools: ["Lab Equipment", "Data Analysis", "MATLAB"],
-    }
+      tools: ["AutoCAD", "Microsoft Office"],
+    },
   ],
+
   projects: [
     {
       id: "prj-01",
-      title: "[STRUCTURAL ANALYSIS OF STEEL BRIDGE]",
-      type: "Academic Project",
-      methodology: "Finite Element Analysis (FEA)",
-      description: "[Comprehensive structural analysis of a 50m span truss bridge under dynamic loading conditions, ensuring compliance with Eurocode 3.]",
-      tools: ["SAP2000", "AutoCAD", "Hand Calculations"],
-      image: "/api/placeholder/800/600", // Free placeholder image service
-    },
-    {
-      id: "prj-02",
-      title: "[REINFORCED CONCRETE BUILDING DESIGN]",
-      type: "Capstone Design",
-      methodology: "Structural Design & Detailing",
-      description: "[Complete design of a 5-story commercial building including slab, beam, column, and foundation calculations according to Eurocode 2.]",
-      tools: ["ETABS", "Revit", "Excel"],
+      title: "CHALLENGES OF RENEWABLE ENERGIES IN THE 21ST CENTURY",
+      type: "Erasmus+ Blended Intensive Program",
+      methodology: "Renewable Energy Case Study & PVGIS Analysis",
+      description:
+        "Conducted and presented a case study on the Agios Georgios Wind Farm operated by Terna Energy. The program also covered renewable energy sources and energy storage systems, with practical participation in photovoltaic park design and energy yield quantification using PVGIS.",
+      tools: ["PVGIS", "Renewable Energy Analysis"],
       image: "/api/placeholder/800/600",
     },
-    {
-      id: "prj-03",
-      title: "[HIGHWAY INTERSECTION REDESIGN]",
-      type: "Transportation Engineering",
-      methodology: "Traffic Flow Optimization",
-      description: "[Redesigned an urban intersection to improve traffic throughput by 15% and incorporate dedicated bicycle lanes and pedestrian safety islands.]",
-      tools: ["Civil 3D", "Synchro", "GIS"],
-      image: "/api/placeholder/800/600",
-    }
   ],
+
   education: [
     {
       id: "edu-01",
-      degree: "[BSc / MEng CIVIL ENGINEERING]",
-      institution: "[UNIVERSITY NAME]",
-      year: "Expected 2027",
-      details: "[Current GPA / Major focus area, e.g., Structural Engineering or Geotechnical.]",
-    }
+      degree: "Bachelor of Engineering, Civil Engineering",
+      institution: "Aristotle University of Thessaloniki",
+      year: "Expected 2028",
+      details: "GPA: 7.4/10 (May 2026)",
+    },
+    {
+      id: "edu-02",
+      degree: "Apolytirio Genikou Lykeiou",
+      institution: "Doukas School SA",
+      year: "2023",
+      details: "Grade: 19.3/20",
+    },
   ],
+  
   toolkit: [
-    { category: "BIM & CAD", skills: ["AutoCAD", "Revit", "Civil 3D"] },
-    { category: "Analysis", skills: ["SAP2000", "ETABS", "Plaxis 2D"] },
-    { category: "Programming & Data", skills: ["Python", "MATLAB", "Excel (VBA)"] },
-  ]
+    {
+      category: "Structural & Engineering",
+      skills: [
+        "SAP2000",
+        "AutoCAD",
+        "Pre-measurements",
+        "Concrete Works",
+      ],
+    },
+    {
+      category: "Renewable Energy",
+      skills: [
+        "PVGIS",
+        "Photovoltaic Park Design",
+        "Energy Yield Quantification",
+      ],
+    },
+    {
+      category: "Software & Programming",
+      skills: [
+        "Microsoft Office",
+        "Python (Basic)",
+      ],
+    },
+    {
+      category: "Professional Skills",
+      skills: [
+        "Problem Solving",
+        "Critical Thinking",
+        "Project Management",
+        "Team Collaboration",
+        "Multitasking & Organization",
+      ],
+    },
+  ],
 };

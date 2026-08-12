@@ -57,7 +57,7 @@ export default function Credentials() {
               {PORTFOLIO_DATA.toolkit.map((category, index) => (
                 <div key={index} className="flex flex-col gap-3">
                   <span className="font-mono text-xs tracking-widest text-graphite-light uppercase border-b structural-border pb-2">
-                    // {category.category}
+                    {category.category}
                   </span>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {category.skills.map((skill, i) => (
