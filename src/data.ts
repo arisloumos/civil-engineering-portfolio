@@ -6,8 +6,7 @@ export const PORTFOLIO_DATA = {
     role: "Civil Engineering Undergraduate",
     statement:
       "Civil Engineering undergraduate with practical experience in construction site operations, concrete works, and architectural trades, with a growing focus on structural engineering, renewable energy, and project management.",
-    location: "Athens, Greece",
-    coordinates: "LAT: 37.9838° N / LON: 23.7275° E",
+    location: "Thessaloniki, Greece",
   },
 
   contact: {
@@ -15,6 +14,7 @@ export const PORTFOLIO_DATA = {
     linkedin: "https://linkedin.com/in/konstantinos-karouzos",
     resumeUrl: "/CV_Karouzos_EN.pdf",
   },
+
   experience: [
     {
       id: "exp-01",
@@ -110,4 +110,41 @@ export const PORTFOLIO_DATA = {
       ],
     },
   ],
+
+  training: [
+    {
+      id: "trn-01",
+      title: "Effective Writing and Presentation Skills",
+      institution: "Civil Engineering, Aristotle University of Thessaloniki",
+      duration: "52 hours",
+      period: "OCT 2025 - JAN 2026",
+    },
+    {
+      id: "trn-02",
+      title: "Terminology in English for Civil Engineers",
+      institution: "Civil Engineering, Aristotle University of Thessaloniki",
+      duration: "52 hours",
+      period: "FEB 2025 - APR 2025",
+    },
+  ],
+  conferences: [
+    {
+      id: "conf-01",
+      title: "5th Panhellenic Civil Engineering Students Conference",
+      role: "Organising Committee Member",
+      period: "MAR 2025",
+    },
+    {
+      id: "conf-02",
+      title: "19th Panhellenic Concrete Conference",
+      role: "Attendee", // Added this so the layout remains consistent
+      period: "NOV 2024",
+    },
+  ],
+  languages: [
+    { language: "Greek", level: "Native" },
+    { language: "English", level: "C2 - Proficient" },
+    { language: "French", level: "B1 - Intermediate" },
+  ],
+    
 };

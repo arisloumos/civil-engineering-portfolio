@@ -63,7 +63,7 @@ export default function Footer() {
         {/* Bottom copyright */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-8 font-mono text-[10px] text-paper/40 tracking-widest uppercase gap-4 text-center sm:text-left">
           <p>© {currentYear} {personal.name}. All rights reserved.</p>
-          <p>ENGINEERED IN {personal.location.toUpperCase()}</p>
+          <p>DESIGNED & BUILT BY ARIS LOUMIDIS</p>
         </div>
 
       </div>

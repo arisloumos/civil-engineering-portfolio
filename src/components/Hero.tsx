@@ -12,7 +12,7 @@ export default function Hero() {
         <div className="flex items-center gap-4 mb-12">
           <div className="w-8 h-[1px] bg-graphite/30"></div>
           <p className="font-mono text-xs text-graphite-light tracking-widest uppercase">
-            SYS.LOC // {personal.coordinates}
+            THESSALONIKI, GR // AUTH // 2023-2028
           </p>
         </div>
 
