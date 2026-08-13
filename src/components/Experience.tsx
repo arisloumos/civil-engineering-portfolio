@@ -291,11 +291,11 @@ export default function Experience() {
                       <div className="flex items-center justify-between mb-3">
 
                         <span className="font-mono text-[9px] tracking-[0.2em] text-graphite-light uppercase">
-                          PROJECT IMAGES
+                          SITE DOCUMENTATION
                         </span>
 
                         <span className="font-mono text-[10px] tracking-[0.18em] text-graphite-light tabular-nums">
-                          <span className="text-graphite">
+                          <span className="text-graphite/65">
                             {String(currentGalleryIndex + 1).padStart(2, "0")}
                           </span>
 
@@ -318,10 +318,10 @@ export default function Experience() {
                         <div
                           className="
                             w-full
-                            aspect-[4/5]
+                            aspect-[5/4]
                             lg:w-auto
                             lg:h-[min(520px,60vh)]
-                            lg:aspect-[4/5]
+                            lg:aspect-[5/4]
                             shrink-0
                             structural-border
                             relative

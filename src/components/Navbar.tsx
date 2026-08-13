@@ -54,13 +54,16 @@ export default function Navbar() {
         {/* Center: Main Navigation */}
         <nav className="hidden md:flex items-center gap-8 font-mono text-xs tracking-widest text-paper/70">
           <Link href="#record" className="hover:text-paper transition-colors">
-            RECORD
+            EXPERIENCE
           </Link>
           <Link href="#projects" className="hover:text-paper transition-colors">
             PROJECTS
           </Link>
           <Link href="#credentials" className="hover:text-paper transition-colors">
             CREDENTIALS
+          </Link>
+          <Link href="#contact" className="hover:text-paper transition-colors">
+            CONTACT
           </Link>
         </nav>
 
