@@ -9,20 +9,18 @@
 - [X] fix gallery (column 3)
 - [X] fix photos (junky)
 - [X] fix logos (positon & size)
+- [X] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
+- [X] fix footer PROJECT/DISCIPLINE
 
 ### CURRENT
-- [ ] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
-- [ ] fix TECHNICAL TOOLKIT (colors & aligment)
-- [ ] fix footer PROJECT/DISCIPLINE
+- [ ] fix QUALIFICATIONS & CREDENTIALS (colors & aligment)
+- [ ] edit projects (same style photos, new design idea, grayscale, new placeholder project)
 
 ### NEXT
-- [ ] fix project photos (same style as exp)
 - [ ] fix about me aligment and conent
-- [ ] fix border missalingment (QUALIFICATIONS & CREDENTIALS)
-- [ ] fix spaces
+- [ ] fix spaces (mobile)
 
 ### FINAL
-- [ ] fix mobile view (if needed)
 - [ ] add final info
 - [ ] add final photos
 - [ ] add VIEW SPECIFICATIONS button function
