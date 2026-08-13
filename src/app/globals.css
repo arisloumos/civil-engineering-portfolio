@@ -57,5 +57,5 @@
 }
 
 @utility animate-gallery-open {
-  animation: gallery-open 350ms ease-out both;
+  animation: gallery-open 500ms ease-out both;
 }

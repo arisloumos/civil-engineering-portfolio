@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/data";
-import { MapPin, ImageIcon, ChevronDown } from "lucide-react";
+import { MapPin, ImageIcon, ChevronDown, ChevronUp } from "lucide-react";
 import GalleryBlock from "./GalleryBlock";
 
 export default function Experience() {
@@ -10,10 +10,9 @@ export default function Experience() {
     new Set()
   );
 
-  // Keeps track of the currently displayed image for each experience
-  const [galleryIndexes, setGalleryIndexes] = useState<
-    Record<string, number>
-  >({});
+  const [galleryIndexes, setGalleryIndexes] = useState<Record<string, number>>(
+    {}
+  );
 
   const toggleGallery = (id: string) => {
     const newSet = new Set(expandedSections);
@@ -49,33 +48,53 @@ export default function Experience() {
 
         {/* Experience List */}
         <div className="flex flex-col border-t border-l border-r structural-border">
+
           {PORTFOLIO_DATA.experience.map((exp, index) => {
+            const isExpanded = expandedSections.has(exp.id);
             const currentGalleryIndex = galleryIndexes[exp.id] ?? 0;
+            const hasImages = !!(exp.images && exp.images.length > 0);
 
             return (
               <div
                 key={exp.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 md:p-8 border-b structural-border transition-colors group ${
-                  index % 2 === 0
-                    ? "bg-transparent hover:bg-paper-dark/30"
-                    : "bg-black/[0.01] hover:bg-paper-dark/30"
-                }`}
+                className={`
+                  grid grid-cols-1 lg:grid-cols-12
+                  gap-6
+                  p-6 md:p-8
+                  border-b structural-border
+                  transition-colors
+                  group
+                  ${
+                    index % 2 === 0
+                      ? "bg-transparent hover:bg-paper-dark/30"
+                      : "bg-black/[0.01] hover:bg-paper-dark/30"
+                  }
+                `}
               >
 
-                {/* Column 1: Year */}
+                {/* ===================================================== */}
+                {/* COLUMN 1 — YEAR */}
+                {/* ===================================================== */}
+
                 <div className="lg:col-span-2 pt-1">
                   <span className="font-mono text-xs tracking-widest text-graphite-light">
                     [{exp.year}]
                   </span>
                 </div>
 
-                {/* Column 2: Role, Company, Location + Logo */}
+
+                {/* ===================================================== */}
+                {/* COLUMN 2 — ROLE / COMPANY / LOCATION / LOGO */}
+                {/* ===================================================== */}
+
                 <div className="lg:col-span-4 flex flex-col gap-2 pt-1">
+
                   <h3 className="font-sans text-xl font-bold text-graphite leading-tight uppercase">
                     {exp.role}
                   </h3>
 
                   <div className="flex flex-col gap-1">
+
                     <span className="font-mono text-sm text-blueprint font-medium uppercase">
                       {exp.company}
                     </span>
@@ -90,6 +109,7 @@ export default function Experience() {
                         {exp.location}
                       </span>
                     </div>
+
                   </div>
 
                   {exp.logo && (
@@ -102,106 +122,144 @@ export default function Experience() {
                       />
                     </div>
                   )}
+
                 </div>
 
-                {/* Column 3: Achievements, Tools + Gallery Toggle */}
-                <div className="lg:col-span-6 flex flex-col gap-6 pt-1">
 
-                  {/* Achievements */}
-                  <ul className="flex flex-col gap-3">
-                    {exp.achievements.map((achievement, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-graphite-light text-sm md:text-base leading-relaxed"
-                      >
-                        <span className="font-mono text-blueprint mt-0.5">
-                          +
-                        </span>
+                {/* ===================================================== */}
+                {/* COLUMN 3 — CONTENT / GALLERY */}
+                {/* ===================================================== */}
 
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="lg:col-span-6 pt-1">
 
-                  {/* Tools */}
-                  <div className="flex flex-wrap items-center gap-1.5 mt-auto pt-3">
-                    <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-graphite-light flex items-center mr-2">
-                      TOOLS:
-                    </span>
+                  {/* ================================================= */}
+                  {/* TOGGLE — ALWAYS STAYS AT THE TOP                  */}
+                  {/* ================================================= */}
 
-                    {exp.tools.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="
-                          font-mono text-[10px] uppercase tracking-widest
-                          px-2.5 py-1.5
-                          border border-black/15
-                          bg-tool
-                          text-tool-text
-                          transition-all duration-200
-                          hover:bg-tool-hover
-                          hover:text-tool-text-hover
-                          hover:border-graphite
-                          hover:-translate-y-0.5
-                          cursor-default
-                        "
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* View Photos */}
-                  {exp.images && exp.images.length > 0 && (
+                  {hasImages && (
                     <button
                       onClick={() => toggleGallery(exp.id)}
-                      className="mt-2 flex items-center gap-2 font-mono text-[10px] tracking-widest text-graphite-light hover:text-blueprint transition-colors w-fit border-b border-transparent hover:border-blueprint pb-1 uppercase"
+                      className="
+                        flex
+                        items-center
+                        gap-2
+                        font-mono
+                        text-[10px]
+                        tracking-widest
+                        text-graphite-light
+                        hover:text-blueprint
+                        transition-colors
+                        w-fit
+                        border-b
+                        border-transparent
+                        hover:border-blueprint
+                        pb-1
+                        uppercase
+                        mb-5
+                      "
                     >
                       <ImageIcon
                         className="w-3.5 h-3.5"
                         strokeWidth={1.5}
                       />
 
-                      {expandedSections.has(exp.id)
-                        ? "HIDE PHOTOS"
-                        : "VIEW PHOTOS"}
+                      {isExpanded ? "HIDE PHOTOS" : "VIEW PHOTOS"}
 
-                      <ChevronDown
-                        className={`
-                          w-3 h-3
-                          transition-transform duration-300
-                          ${
-                            expandedSections.has(exp.id)
-                              ? "rotate-180"
-                              : ""
-                          }
-                        `}
-                        strokeWidth={1.5}
-                      />
+                      {isExpanded ? (
+                        <ChevronUp
+                          className="w-3 h-3"
+                          strokeWidth={1.5}
+                        />
+                      ) : (
+                        <ChevronDown
+                          className="w-3 h-3"
+                          strokeWidth={1.5}
+                        />
+                      )}
                     </button>
                   )}
-                </div>
 
-                {/* Expanded Image Gallery */}
-                {exp.images &&
-                  exp.images.length > 0 &&
-                  expandedSections.has(exp.id) && (
-                    <div
-                      className="
-                        lg:col-start-3 lg:col-span-10
-                        pt-5
-                        border-t border-black/15
-                        animate-gallery-open
-                      "
-                    >
+
+                  {/* ================================================= */}
+                  {/* CLOSED STATE                                      */}
+                  {/* ================================================= */}
+
+                  {!isExpanded || !hasImages ? (
+
+                    <div className="flex flex-col">
+
+                      {/* Achievements */}
+
+                      <ul className="flex flex-col gap-3">
+                        {exp.achievements.map((achievement, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-3 text-graphite-light text-sm md:text-base leading-relaxed"
+                          >
+                            <span className="font-mono text-blueprint mt-0.5">
+                              +
+                            </span>
+
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+
+                      {/* Tools */}
+
+                      <div className="flex flex-wrap gap-2 mt-6">
+
+                        <span className="font-mono text-xs text-graphite-light flex items-center mr-2">
+                          TOOLS:
+                        </span>
+
+                        {exp.tools.map((tool, i) => (
+                          <span
+                            key={i}
+                            className="
+                              font-mono
+                              text-[10px]
+                              uppercase
+                              tracking-widest
+                              px-2
+                              py-1
+                              structural-border
+                              text-graphite-light
+                              bg-paper
+                              transition-all
+                              duration-200
+                              hover:bg-graphite
+                              hover:text-paper
+                              hover:border-graphite
+                            "
+                          >
+                            {tool}
+                          </span>
+                        ))}
+
+                      </div>
+
+                    </div>
+
+                  ) : (
+
+                    /* ================================================= */
+                    /* OPEN STATE — GALLERY                            */
+                    /* ================================================= */
+
+                    <div className="animate-gallery-open">
+
                       {/* Gallery Header */}
-                      <div className="flex items-center justify-between mb-2">
+
+                      <div className="flex items-center justify-between mb-3">
+
                         <span className="font-mono text-[9px] tracking-[0.2em] text-graphite-light uppercase">
-                          INTERNSHIP IMAGES
+                          PROJECT IMAGES
                         </span>
 
                         <span className="font-mono text-[10px] tracking-[0.18em] text-graphite-light tabular-nums">
-                          <span className="text-black/60">
+                          <span className="text-graphite">
                             {String(currentGalleryIndex + 1).padStart(2, "0")}
                           </span>
 
@@ -213,11 +271,28 @@ export default function Experience() {
                             {String(exp.images.length).padStart(2, "0")}
                           </span>
                         </span>
+
                       </div>
 
+
                       {/* Gallery */}
-                      <div className="w-full flex justify-center">
-                        <div className="w-full max-w-[560px] aspect-[4/5] structural-border relative overflow-hidden bg-paper-dark">
+
+                      <div className="w-full flex justify-center items-start">
+
+                        <div
+                          className="
+                            w-full
+                            aspect-[4/5]
+                            lg:w-auto
+                            lg:h-[min(520px,60vh)]
+                            lg:aspect-[4/5]
+                            shrink-0
+                            structural-border
+                            relative
+                            overflow-hidden
+                            bg-paper-dark
+                          "
+                        >
                           <GalleryBlock
                             images={exp.images}
                             disableGrayscale={true}
@@ -226,13 +301,20 @@ export default function Experience() {
                             }
                           />
                         </div>
+
                       </div>
+
                     </div>
                   )}
+
+                </div>
+
               </div>
             );
           })}
+
         </div>
+
       </div>
     </section>
   );
