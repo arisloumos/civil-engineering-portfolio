@@ -216,14 +216,16 @@ export default function Experience() {
                       </div>
 
                       {/* Gallery */}
-                      <div className="w-full aspect-[4/5] lg:aspect-[4/3] structural-border relative overflow-hidden bg-paper-dark">
-                        <GalleryBlock
-                          images={exp.images}
-                          disableGrayscale={true}
-                          onIndexChange={(index) =>
-                            updateGalleryIndex(exp.id, index)
-                          }
-                        />
+                      <div className="w-full flex justify-center">
+                        <div className="w-full max-w-[560px] aspect-[4/5] structural-border relative overflow-hidden bg-paper-dark">
+                          <GalleryBlock
+                            images={exp.images}
+                            disableGrayscale={true}
+                            onIndexChange={(index) =>
+                              updateGalleryIndex(exp.id, index)
+                            }
+                          />
+                        </div>
                       </div>
                     </div>
                   )}

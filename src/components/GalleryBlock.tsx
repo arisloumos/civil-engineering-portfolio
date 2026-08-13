@@ -87,8 +87,9 @@ export default function GalleryBlock({
             absolute
             bottom-4 right-4
             flex gap-1
-            opacity-0
-            group-hover:opacity-100
+            opacity-100
+            lg:opacity-0
+            lg:group-hover:opacity-100
             transition-opacity duration-300
             z-20
           "
@@ -100,7 +101,7 @@ export default function GalleryBlock({
             className="
               group/prev
               flex items-center justify-center
-              w-8 h-8
+              w-9 h-9
               bg-paper/95
               text-graphite
               border border-black/15
@@ -129,7 +130,7 @@ export default function GalleryBlock({
             className="
               group/next
               flex items-center justify-center
-              w-8 h-8
+              w-9 h-9
               bg-paper/95
               text-graphite
               border border-black/15
