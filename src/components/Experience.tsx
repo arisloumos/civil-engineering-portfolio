@@ -75,7 +75,7 @@ export default function Experience() {
                 {/* COLUMN 1 — EXPERIENCE IDENTITY */}
                 {/* ===================================================== */}
 
-                <div className="lg:col-span-6 pt-4 lg:pt-1 flex flex-col relative">
+                <div className="lg:col-span-5 pt-7 lg:pt-1 flex flex-col relative">
 
                   {/* Date */}
                   <span className="font-mono text-xs tracking-widest text-graphite-light uppercase">
@@ -88,19 +88,21 @@ export default function Experience() {
                   {/* ================================================= */}
 
                   {exp.logo && (
-                    <div className="absolute -top-5 -right-3 flex items-start justify-end lg:hidden">
+                    <div className="absolute -top-5 -right-3 w-[140px] h-[50px] flex items-center justify-end lg:hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={exp.logo}
                         alt={exp.company}
-                        className="
+                        className={`
+                          max-w-full
+                          max-h-full
                           w-auto
                           h-auto
-                          max-w-[200px]
-                          max-h-[70px]
                           object-contain
                           object-right
-                        "
+                          ${exp.mobileLogoScale || "scale-100"}
+                          ${exp.mobileLogoPosition || ""}
+                        `}
                       />
                     </div>
                   )}
@@ -139,19 +141,21 @@ export default function Experience() {
                   {/* ================================================= */}
 
                   {exp.logo && (
-                    <div className="hidden lg:flex -mt-3 items-center justify-start">
+                    <div className="hidden lg:flex mt-5 w-[240px] h-[70px] items-center justify-start">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={exp.logo}
                         alt={exp.company}
-                        className="
+                        className={`
+                          max-w-full
+                          max-h-full
                           w-auto
                           h-auto
-                          max-w-[340px]
-                          max-h-[100px]
                           object-contain
                           object-left
-                        "
+                          ${exp.desktopLogoScale || "scale-100"}
+                          ${exp.desktopLogoPosition || ""}
+                        `}
                       />
                     </div>
                   )}
@@ -162,7 +166,7 @@ export default function Experience() {
                 {/* COLUMN 2 — EXPERIENCE EVIDENCE */}
                 {/* ===================================================== */}
 
-                <div className="lg:col-span-6 pt-1">
+                <div className="lg:col-span-7 pt-1">
 
                   {/* ================================================= */}
                   {/* TOGGLE — ALWAYS STAYS AT THE TOP                  */}

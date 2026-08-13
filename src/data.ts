@@ -22,6 +22,10 @@ export const PORTFOLIO_DATA = {
       role: "Civil Engineering Intern",
       company: "TERNA S.A.",
       logo: "/terna-logo.png",
+      desktopLogoScale: "scale-[0.6]",
+      desktopLogoPosition: "translate-x-[-46px] translate-y-[-20px]",
+      mobileLogoScale: "scale-[0.7]",
+      mobileLogoPosition: "translate-x-[15px] translate-y-[0px]",
       location: "Ellinikon, Athens, Greece",
       achievements: [
         "[ADD YOUR ACTUAL RESPONSIBILITIES AND PROJECT WORK AT TERNA]",
@@ -38,6 +42,10 @@ export const PORTFOLIO_DATA = {
       role: "Civil Engineering Intern",
       company: "BBI - INTRAKAT RT JOINT VENTURE",
       logo: "/aktor-logo.png",
+      desktopLogoScale: "scale-[1.05]",
+      desktopLogoPosition: "translate-x-[5px] translate-y-[-5px]",
+      mobileLogoScale: "scale-[0.9]",
+      mobileLogoPosition: "translate-x-[-3px] translate-y-[10px]",
       location: "Ellinikon, Athens, Greece",
       achievements: [
         "Inspected concrete reinforcement during construction activities.",
