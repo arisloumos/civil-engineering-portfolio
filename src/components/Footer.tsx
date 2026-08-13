@@ -1,5 +1,8 @@
+"use client";
+
 import { PORTFOLIO_DATA } from "@/data";
 import { Mail } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
 // Custom SVG for LinkedIn matching the Lucide style
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -19,6 +22,34 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+// --- MOTION VARIANTS ---
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const childVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.0,
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
+    },
+  },
+};
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { contact, personal } = PORTFOLIO_DATA;
@@ -31,8 +62,12 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Footer Title Block */}
-        <div
+        {/* Footer Title Block (Architectural Ledger Stamp) */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "0px 0px -50px 0px" }}
+          variants={containerVariants}
           className="
             border border-paper/20
             grid grid-cols-1
@@ -46,8 +81,8 @@ export default function Footer() {
           {/* ================================================= */}
           {/* BLOCK 1 — CONTACT CTA                            */}
           {/* ================================================= */}
-
-          <div
+          <motion.div
+            variants={childVariants}
             className="
               md:col-span-7
               lg:col-span-5
@@ -89,14 +124,14 @@ export default function Footer() {
             >
               Contact via LinkedIn or email
             </p>
-          </div>
+          </motion.div>
 
 
           {/* ================================================= */}
           {/* BLOCK 2 — NETWORK LINKS                          */}
           {/* ================================================= */}
-
-          <div
+          <motion.div
+            variants={childVariants}
             className="
               md:col-span-3
               lg:col-span-4
@@ -113,7 +148,6 @@ export default function Footer() {
             </p>
 
             <div className="flex flex-col gap-3">
-
               <a
                 href={contact.linkedin}
                 target="_blank"
@@ -149,16 +183,15 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
                 Email
               </a>
-
             </div>
-          </div>
+          </motion.div>
 
 
           {/* ================================================= */}
           {/* BLOCK 3 — RESUME                                  */}
           {/* ================================================= */}
-
-          <a
+          <motion.a
+            variants={childVariants}
             href={contact.resumeUrl}
             target="_blank"
             rel="noreferrer"
@@ -196,13 +229,17 @@ export default function Footer() {
                 Rev. {cvYear}
               </p>
             </div>
-          </a>
+          </motion.a>
 
-        </div>
+        </motion.div>
 
 
         {/* Copyright */}
-        <div
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={childVariants}
           className="
             mt-5
             flex
@@ -227,7 +264,7 @@ export default function Footer() {
           <p>
             Designed & Built by Aris Loumidis
           </p>
-        </div>
+        </motion.div>
 
       </div>
     </footer>

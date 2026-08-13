@@ -43,19 +43,3 @@
   border-style: solid;
   border-color: rgba(24, 24, 27, 0.2);
 }
-
-@keyframes gallery-open {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@utility animate-gallery-open {
-  animation: gallery-open 500ms ease-out both;
-}

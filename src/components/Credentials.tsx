@@ -1,27 +1,90 @@
+"use client";
+
 import { PORTFOLIO_DATA } from "@/data";
 import { GraduationCap, Wrench, BookOpen, Presentation, Globe } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+// --- MOTION VARIANTS ---
+
+// Section Header Blueprint Line
+const drawLineX: Variants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
+    },
+  },
+};
+
+// Grid Container: Fades in directly in place to prevent border jumping
+const gridContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeInOut",
+      staggerChildren: 0.12, // Smooth cascade across blocks
+    },
+  },
+};
+
+// Inner Block Content: Smoothly glides up and fades in
+const childVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.0,
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
+    },
+  },
+};
 
 export default function Credentials() {
   return (
     <section id="credentials" className="w-full py-20 border-b structural-border">
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Section Header */}
-        <div className="flex items-center gap-4 mb-12">
-          <h2 className="font-mono text-sm tracking-widest text-graphite-light uppercase">
+
+        {/* Section Header with Self-Drawing Blueprint Line */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px 0px -80px 0px" }} //
+          className="flex items-center gap-4 mb-12"
+        >
+          <motion.h2
+            variants={childVariants}
+            className="font-mono text-sm tracking-widest text-graphite-light uppercase shrink-0"
+          >
             03 // Qualifications & Credentials
-          </h2>
-          <div className="flex-grow h-[1px] bg-graphite/20"></div>
-        </div>
+          </motion.h2>
+          <motion.div
+            variants={drawLineX}
+            className="flex-grow h-[1px] bg-graphite/30 origin-left"
+          />
+        </motion.div>
 
         {/* 2-Column Structural Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 border structural-border">
-          
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "0px 0px -150px 0px" }}
+          variants={gridContainerVariants}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-0 border structural-border"
+        >
+
           {/* LEFT COLUMN: Academic & Professional Development */}
           <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r structural-border flex flex-col">
-            
+
             {/* 1. Education Block */}
-            <div className="p-8 md:p-12 border-b structural-border">
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border">
               <div className="flex items-center gap-3 mb-8">
                 <GraduationCap className="w-5 h-5 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">Academic Background</h3>
@@ -46,10 +109,10 @@ export default function Credentials() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* 2. Specialized Training Block */}
-            <div className="p-8 md:p-12 border-b structural-border">
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border">
               <div className="flex items-center gap-3 mb-8">
                 <BookOpen className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">Specialized Training</h3>
@@ -66,15 +129,15 @@ export default function Credentials() {
                       </span>
                     </div>
                     <span className="font-mono text-[11px] text-graphite-light uppercase">
-                    {trn.institution} // <span className="text-blueprint">{trn.duration}</span>
+                      {trn.institution} // <span className="text-blueprint">{trn.duration}</span>
                     </span>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* 3. Conferences Block */}
-            <div className="p-8 md:p-12">
+            <motion.div variants={childVariants} className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-8">
                 <Presentation className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">Engagement & Conferences</h3>
@@ -98,15 +161,15 @@ export default function Credentials() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* RIGHT COLUMN: Skills & Capabilities */}
           <div className="lg:col-span-5 flex flex-col">
-            
+
             {/* 1. Technical Toolkit Block */}
-            <div className="p-8 md:p-12 border-b structural-border">
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border">
               <div className="flex items-center gap-3 mb-8">
                 <Wrench className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">Technical Toolkit</h3>
@@ -119,8 +182,8 @@ export default function Credentials() {
                     </span>
                     <div className="flex flex-wrap gap-2 pt-1">
                       {category.skills.map((skill, i) => (
-                        <span 
-                          key={i} 
+                        <span
+                          key={i}
                           className="font-mono text-[11px] tracking-widest uppercase px-3 py-1.5 bg-graphite text-paper hover:bg-blueprint transition-colors"
                         >
                           {skill}
@@ -130,10 +193,10 @@ export default function Credentials() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* 2. Languages Block */}
-            <div className="p-8 md:p-12">
+            <motion.div variants={childVariants} className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-8">
                 <Globe className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">Languages</h3>
@@ -150,11 +213,11 @@ export default function Credentials() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>
