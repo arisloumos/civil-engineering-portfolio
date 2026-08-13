@@ -1,12 +1,27 @@
+# TODO LIST
+
+### DONE
 - [X] fix grid/white inconsistency
 - [X] invert footer colors
 - [X] monogram material symbols font
 - [X] fix sandwitch problem
-- [ ] fix logos
-- [ ] fix images
-- [ ] fix border missalingment
+- [X] fix tool colors
+- [X] fix gallery
+
+### CURRENT
+- [ ] fix TECHNICAL TOOLKIT (colors & aligment)
+- [ ] fix footer PROJECT/DISCIPLINE
+- [ ] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
+
+### NEXT
+- [ ] fix logos (positon & size)
+- [ ] fix photos (junky)
 - [ ] fix about me aligment and conent
-- [ ] fix mobile view
+- [ ] fix border missalingment (QUALIFICATIONS & CREDENTIALS)
+- [ ] fix spaces
+
+### FINAL
+- [ ] fix mobile view (if needed)
 - [ ] add final info
 - [ ] add final photos
 - [ ] add VIEW SPECIFICATIONS button function

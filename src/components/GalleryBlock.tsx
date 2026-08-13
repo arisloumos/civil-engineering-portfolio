@@ -5,61 +5,151 @@ import { ChevronLeft, ChevronRight, PenTool } from "lucide-react";
 
 interface GalleryBlockProps {
   images: string[];
-  disableGrayscale?: boolean; // <--- We added this switch
+  disableGrayscale?: boolean;
+  onIndexChange?: (index: number) => void;
 }
 
-export default function GalleryBlock({ images, disableGrayscale = false }: GalleryBlockProps) {
+export default function GalleryBlock({
+  images,
+  disableGrayscale = false,
+  onIndexChange,
+}: GalleryBlockProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) return null;
 
-  const handleNext = () => setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  const handlePrev = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const handleNext = () => {
+    const nextIndex =
+      currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+
+    setCurrentIndex(nextIndex);
+    onIndexChange?.(nextIndex);
+  };
+
+  const handlePrev = () => {
+    const previousIndex =
+      currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+
+    setCurrentIndex(previousIndex);
+    onIndexChange?.(previousIndex);
+  };
 
   const currentImage = images[currentIndex];
   const isPlaceholder = currentImage.includes("placeholder");
 
   return (
     <div className="relative w-full h-full flex group bg-paper-dark overflow-hidden">
-      
+
+      {/* IMAGE */}
       {isPlaceholder ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-graphite text-paper/50">
-          <div className="absolute inset-0 opacity-20" style={{ 
-            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-            backgroundSize: '24px 24px' 
-          }}></div>
-          <PenTool className="w-12 h-12 mb-4 opacity-50" strokeWidth={1} />
-          <p className="font-mono text-xs tracking-widest z-10">SYS.IMG // PENDING</p>
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+
+          <PenTool
+            className="w-12 h-12 mb-4 opacity-50"
+            strokeWidth={1}
+          />
+
+          <p className="font-mono text-xs tracking-widest z-10">
+            IMG // PENDING
+          </p>
         </div>
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img 
-          key={currentImage} 
-          src={currentImage} 
+        <img
+          key={currentImage}
+          src={currentImage}
           alt={`Technical view ${currentIndex + 1}`}
-          // We apply grayscale conditionally based on the new prop!
-          className={`object-cover w-full h-full transition-all duration-500 ${
-            disableGrayscale ? '' : 'grayscale group-hover:grayscale-0'
+          className={`object-cover w-full h-full ${
+            disableGrayscale
+              ? ""
+              : "grayscale group-hover:grayscale-0"
           }`}
         />
       )}
 
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-paper m-2 opacity-50 z-10"></div>
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-paper m-2 opacity-50 z-10"></div>
+      {/* Technical corner marks */}
+      <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-paper m-3 opacity-40 z-10" />
 
+      <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-paper m-3 opacity-40 z-10" />
+
+      {/* Navigation */}
       {images.length > 1 && (
-        <div className="absolute bottom-0 left-0 w-full p-4 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-          <div className="bg-graphite text-paper font-mono text-[10px] tracking-widest px-2 py-1 shadow-sm">
-            IMG 0{currentIndex + 1}/0{images.length}
-          </div>
-          <div className="flex gap-1 shadow-sm">
-            <button onClick={handlePrev} className="bg-paper text-graphite p-1.5 hover:bg-blueprint hover:text-paper border structural-border transition-colors cursor-pointer">
-              <ChevronLeft className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-            <button onClick={handleNext} className="bg-paper text-graphite p-1.5 hover:bg-blueprint hover:text-paper border structural-border transition-colors cursor-pointer">
-              <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-          </div>
+        <div
+          className="
+            absolute
+            bottom-4 right-4
+            flex gap-1
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity duration-300
+            z-20
+          "
+        >
+          {/* Previous */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous image"
+            className="
+              group/prev
+              flex items-center justify-center
+              w-8 h-8
+              bg-paper/95
+              text-graphite
+              border border-black/15
+              transition-all duration-200
+              hover:bg-blueprint
+              hover:text-paper
+              hover:border-blueprint
+              hover:scale-[1.1]
+              cursor-pointer
+            "
+          >
+            <ChevronLeft
+              className="
+                w-4 h-4
+                transition-transform duration-200
+                group-hover/prev:-translate-x-px
+              "
+              strokeWidth={1.5}
+            />
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={handleNext}
+            aria-label="Next image"
+            className="
+              group/next
+              flex items-center justify-center
+              w-8 h-8
+              bg-paper/95
+              text-graphite
+              border border-black/15
+              transition-all duration-200
+              hover:bg-blueprint
+              hover:text-paper
+              hover:border-blueprint
+              hover:scale-[1.1]
+              cursor-pointer
+            "
+          >
+            <ChevronRight
+              className="
+                w-4 h-4
+                transition-transform duration-200
+                group-hover/next:translate-x-px
+              "
+              strokeWidth={1.5}
+            />
+          </button>
         </div>
       )}
     </div>
