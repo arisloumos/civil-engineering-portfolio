@@ -6,16 +6,17 @@
 - [X] monogram material symbols font
 - [X] fix sandwitch problem
 - [X] fix tool colors
-- [X] fix gallery
+- [X] fix gallery (column 3)
+- [X] fix photos (junky)
+- [X] fix logos (positon & size)
 
 ### CURRENT
+- [ ] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
 - [ ] fix TECHNICAL TOOLKIT (colors & aligment)
 - [ ] fix footer PROJECT/DISCIPLINE
-- [ ] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
 
 ### NEXT
-- [ ] fix logos (positon & size)
-- [ ] fix photos (junky)
+- [ ] fix project photos (same style as exp)
 - [ ] fix about me aligment and conent
 - [ ] fix border missalingment (QUALIFICATIONS & CREDENTIALS)
 - [ ] fix spaces

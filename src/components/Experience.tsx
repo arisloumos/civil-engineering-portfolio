@@ -71,63 +71,95 @@ export default function Experience() {
                   }
                 `}
               >
-
                 {/* ===================================================== */}
-                {/* COLUMN 1 — YEAR */}
+                {/* COLUMN 1 — EXPERIENCE IDENTITY */}
                 {/* ===================================================== */}
 
-                <div className="lg:col-span-2 pt-1">
-                  <span className="font-mono text-xs tracking-widest text-graphite-light">
+                <div className="lg:col-span-6 pt-4 lg:pt-1 flex flex-col relative">
+
+                  {/* Date */}
+                  <span className="font-mono text-xs tracking-widest text-graphite-light uppercase">
                     [{exp.year}]
                   </span>
-                </div>
 
 
-                {/* ===================================================== */}
-                {/* COLUMN 2 — ROLE / COMPANY / LOCATION / LOGO */}
-                {/* ===================================================== */}
-
-                <div className="lg:col-span-4 flex flex-col gap-2 pt-1">
-
-                  <h3 className="font-sans text-xl font-bold text-graphite leading-tight uppercase">
-                    {exp.role}
-                  </h3>
-
-                  <div className="flex flex-col gap-1">
-
-                    <span className="font-mono text-sm text-blueprint font-medium uppercase">
-                      {exp.company}
-                    </span>
-
-                    <div className="flex items-center gap-1.5 text-graphite-light mt-1">
-                      <MapPin
-                        className="w-3.5 h-3.5"
-                        strokeWidth={1.5}
-                      />
-
-                      <span className="font-mono text-xs tracking-wide">
-                        {exp.location}
-                      </span>
-                    </div>
-
-                  </div>
+                  {/* ================================================= */}
+                  {/* MOBILE LOGO */}
+                  {/* ================================================= */}
 
                   {exp.logo && (
-                    <div className="w-32 h-20 mt-4 flex items-center justify-start">
+                    <div className="absolute -top-5 -right-3 flex items-start justify-end lg:hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={exp.logo}
                         alt={exp.company}
-                        className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                        className="
+                          w-auto
+                          h-auto
+                          max-w-[200px]
+                          max-h-[70px]
+                          object-contain
+                          object-right
+                        "
+                      />
+                    </div>
+                  )}
+
+
+                  {/* Main Identity */}
+                  <div className="mt-2">
+
+                    <h3 className="font-sans text-xl md:text-2xl font-bold text-graphite leading-tight uppercase">
+                      {exp.role}
+                    </h3>
+
+                    <div className="mt-2 flex flex-col gap-1">
+
+                      <span className="font-mono text-sm text-blueprint font-medium uppercase">
+                        {exp.company}
+                      </span>
+
+                      <div className="flex items-center gap-1.5 text-graphite-light mt-1">
+                        <MapPin
+                          className="w-3.5 h-3.5"
+                          strokeWidth={1.5}
+                        />
+
+                        <span className="font-mono text-xs tracking-wide">
+                          {exp.location}
+                        </span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* ================================================= */}
+                  {/* DESKTOP LOGO */}
+                  {/* ================================================= */}
+
+                  {exp.logo && (
+                    <div className="hidden lg:flex -mt-3 items-center justify-start">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="
+                          w-auto
+                          h-auto
+                          max-w-[340px]
+                          max-h-[100px]
+                          object-contain
+                          object-left
+                        "
                       />
                     </div>
                   )}
 
                 </div>
 
-
                 {/* ===================================================== */}
-                {/* COLUMN 3 — CONTENT / GALLERY */}
+                {/* COLUMN 2 — EXPERIENCE EVIDENCE */}
                 {/* ===================================================== */}
 
                 <div className="lg:col-span-6 pt-1">
