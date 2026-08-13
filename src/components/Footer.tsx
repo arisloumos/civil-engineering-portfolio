@@ -66,7 +66,7 @@ export default function Footer() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "0px 0px -50px 0px" }}
+          viewport={{ once: false, margin: "0px 0px -5px 0px" }}
           variants={containerVariants}
           className="
             border border-paper/20
