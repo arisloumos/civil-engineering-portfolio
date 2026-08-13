@@ -12,7 +12,8 @@ export const PORTFOLIO_DATA = {
   contact: {
     email: "kckarouzos@gmail.com",
     linkedin: "https://linkedin.com/in/konstantinos-karouzos",
-    resumeUrl: "/CV_Karouzos_EN.pdf",
+    resumeUrl: "/CV_Karouzos_Konstantinos_EN.pdf",
+    resumeRevDate: "May 2026",
   },
 
   experience: [

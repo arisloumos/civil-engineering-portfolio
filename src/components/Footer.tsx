@@ -22,6 +22,7 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { contact, personal } = PORTFOLIO_DATA;
+  const cvYear = contact.resumeRevDate;
 
   return (
     <footer
@@ -35,7 +36,7 @@ export default function Footer() {
           className="
             border border-paper/20
             grid grid-cols-1
-            md:grid-cols-4
+            md:grid-cols-12
             lg:grid-cols-12
             font-mono
             tracking-widest
@@ -48,7 +49,7 @@ export default function Footer() {
 
           <div
             className="
-              md:col-span-4
+              md:col-span-7
               lg:col-span-5
               border-b
               md:border-b-0
@@ -97,7 +98,7 @@ export default function Footer() {
 
           <div
             className="
-              md:col-span-2
+              md:col-span-3
               lg:col-span-4
               border-b
               lg:border-b-0
@@ -162,7 +163,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             className="
-              md:col-span-4
+              md:col-span-2
               lg:col-span-3
               p-5
               lg:p-6
@@ -192,7 +193,7 @@ export default function Footer() {
               </p>
 
               <p className="text-[9px] mt-2 opacity-50">
-                Rev. {currentYear}
+                Rev. {cvYear}
               </p>
             </div>
           </a>
