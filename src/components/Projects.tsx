@@ -194,7 +194,7 @@ export default function Projects() {
                     />
 
                     {/* Gallery Counter */}
-                    <div className="absolute bottom-4 left-4 z-50 px-2 py-1">
+                    <div className="absolute bottom-4 left-4 z-10 px-2 py-1">
                       <span className="font-mono text-[10px] tracking-[0.18em] tabular-nums text-graphite">
                         <span className="text-paper/90">
                           {String(currentGalleryIndex + 1).padStart(2, "0")}
@@ -313,7 +313,7 @@ export default function Projects() {
                   />
 
                   {/* Gallery Counter */}
-                  <div className="absolute bottom-4 left-4 z-50 px-2 py-1">
+                  <div className="absolute bottom-4 left-4 z-10 px-2 py-1">
                     <span className="font-mono text-[10px] tracking-[0.18em] tabular-nums text-graphite">
                       <span className="text-paper/90">
                         {String(currentGalleryIndex + 1).padStart(2, "0")}
