@@ -5,8 +5,6 @@ import { GraduationCap, Wrench, BookOpen, Presentation, Globe } from "lucide-rea
 import { motion, Variants } from "framer-motion";
 
 // --- MOTION VARIANTS ---
-
-// Section Header Blueprint Line
 const drawLineX: Variants = {
   hidden: { scaleX: 0 },
   visible: {
@@ -18,7 +16,6 @@ const drawLineX: Variants = {
   },
 };
 
-// Grid Container: Fades in directly in place to prevent border jumping
 const gridContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -31,7 +28,6 @@ const gridContainerVariants: Variants = {
   },
 };
 
-// Inner Block Content: Smoothly glides up and fades in
 const childVariants: Variants = {
   hidden: {
     opacity: 0,
@@ -52,7 +48,7 @@ export default function Credentials() {
     <section id="credentials" className="w-full py-20 border-b structural-border-color">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Section Header with Self-Drawing Blueprint Line */}
+        {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -68,7 +64,7 @@ export default function Credentials() {
 
           <motion.div
             variants={drawLineX}
-            className="flex-grow h-[1px] bg-graphite/30 origin-left"
+            className="grow h-px bg-graphite/30 origin-left"
           />
         </motion.div>
 
@@ -81,20 +77,13 @@ export default function Credentials() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-0 border structural-border-color"
         >
 
-          {/* LEFT COLUMN: Academic & Professional Development */}
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r structural-border-color flex flex-col">
 
             {/* 1. Education Block */}
-            <motion.div
-              variants={childVariants}
-              className="p-8 md:p-12 border-b structural-border-color"
-            >
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border-color grow flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-8">
-                <GraduationCap
-                  className="w-5 h-5 text-blueprint"
-                  strokeWidth={1.5}
-                />
-
+                <GraduationCap className="w-5 h-5 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">
                   Academic Background
                 </h3>
@@ -107,16 +96,13 @@ export default function Credentials() {
                       <h4 className="font-sans text-xl font-bold text-graphite uppercase leading-tight">
                         {edu.degree}
                       </h4>
-
                       <span className="font-mono text-xs tracking-widest text-graphite-light whitespace-nowrap mt-1">
                         [{edu.year}]
                       </span>
                     </div>
-
                     <span className="font-mono text-sm text-blueprint font-medium uppercase">
                       {edu.institution}
                     </span>
-
                     <p className="text-graphite-light text-sm mt-2 leading-relaxed">
                       {edu.details}
                     </p>
@@ -125,77 +111,60 @@ export default function Credentials() {
               </div>
             </motion.div>
 
-            {/* 2. Specialized Training Block */}
-            <motion.div
-              variants={childVariants}
-              className="p-8 md:p-12 border-b structural-border-color"
-            >
+            {/* 2. Specialized Training Block (COMPACT & CLEAN) */}
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border-color grow flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-8">
-                <BookOpen
-                  className="w-4 h-4 text-blueprint"
-                  strokeWidth={1.5}
-                />
-
+                <BookOpen className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">
                   Specialized Training
                 </h3>
               </div>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-5">
                 {PORTFOLIO_DATA.training.map((trn) => (
-                  <div key={trn.id} className="flex flex-col gap-1">
+                  <div key={trn.id} className="flex flex-col gap-1 group">
                     <div className="flex justify-between items-start gap-4">
-                      <h4 className="font-sans text-base font-bold text-graphite uppercase leading-tight">
+                      <h4 className="font-sans text-sm font-bold text-graphite uppercase leading-tight group-hover:text-blueprint transition-colors">
                         {trn.title}
                       </h4>
-
-                      <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-1">
+                      <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-0.5">
                         [{trn.period}]
                       </span>
                     </div>
-
-                    <span className="font-mono text-[11px] text-graphite-light uppercase">
-                      {trn.institution} //{" "}
-                      <span className="text-blueprint">
-                        {trn.duration}
-                      </span>
-                    </span>
+                    
+                    <div className="flex flex-wrap items-center gap-2 font-mono text-[10px] text-graphite-light uppercase">
+                      <span>{trn.institution}</span>
+                      <span className="text-graphite/30">|</span>
+                      <span className="text-blueprint">{trn.duration}</span>
+                    </div>
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* 3. Conferences Block */}
-            <motion.div
-              variants={childVariants}
-              className="p-8 md:p-12"
-            >
-              <div className="flex items-center gap-3 mb-8">
-                <Presentation
-                  className="w-4 h-4 text-blueprint"
-                  strokeWidth={1.5}
-                />
-
+            {/* 3. Conferences Block (COMPACT & CLEAN) */}
+            <motion.div variants={childVariants} className="p-8 md:p-12 grow flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-5">
+                <Presentation className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">
                   Engagement & Conferences
                 </h3>
               </div>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-3">
                 {PORTFOLIO_DATA.conferences.map((conf) => (
-                  <div key={conf.id} className="flex flex-col gap-1">
+                  <div key={conf.id} className="flex flex-col group">
                     <div className="flex justify-between items-start gap-4">
-                      <h4 className="font-sans text-sm font-bold text-graphite uppercase leading-tight">
+                      <h4 className="font-sans text-sm font-bold text-graphite uppercase leading-tight group-hover:text-blueprint transition-colors">
                         {conf.title}
                       </h4>
-
-                      <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-1">
+                      <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-0.5">
                         [{conf.period}]
                       </span>
                     </div>
 
                     {conf.role && (
-                      <span className="font-mono text-[10px] bg-paper-dark border structural-border-color px-2 py-0.5 w-fit text-graphite-light uppercase mt-1">
+                      <span className="font-mono text-[10px] tracking-widest text-blueprint uppercase mt-0.5">
                         ROLE: {conf.role}
                       </span>
                     )}
@@ -203,22 +172,16 @@ export default function Credentials() {
                 ))}
               </div>
             </motion.div>
+            
           </div>
 
-          {/* RIGHT COLUMN: Skills & Capabilities */}
+          {/* RIGHT COLUMN */}
           <div className="lg:col-span-5 flex flex-col">
 
             {/* 1. Technical Toolkit Block */}
-            <motion.div
-              variants={childVariants}
-              className="p-8 md:p-12 border-b structural-border-color"
-            >
+            <motion.div variants={childVariants} className="p-8 md:p-12 border-b structural-border-color">
               <div className="flex items-center gap-3 mb-8">
-                <Wrench
-                  className="w-4 h-4 text-blueprint"
-                  strokeWidth={1.5}
-                />
-
+                <Wrench className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">
                   Technical Toolkit
                 </h3>
@@ -227,13 +190,11 @@ export default function Credentials() {
               <div className="flex flex-col gap-7">
                 {PORTFOLIO_DATA.toolkit.map((category, index) => (
                   <div key={index} className="flex flex-col gap-3">
-                    {/* Category heading */}
                     <div className="border-b structural-border-color pb-2">
                       <span className="font-mono text-[11px] tracking-widest text-graphite-light uppercase">
                         {category.category}
                       </span>
                     </div>
-                    
                     {/* Skill chips */}
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, i) => (
@@ -247,7 +208,7 @@ export default function Credentials() {
                             px-2
                             py-1
                             structural-border
-                            text-graphite-light
+                            text-graphite/70
                             bg-paper
                             transition-all
                             duration-200
@@ -266,16 +227,9 @@ export default function Credentials() {
             </motion.div>
 
             {/* 2. Languages Block */}
-            <motion.div
-              variants={childVariants}
-              className="p-8 md:p-12"
-            >
+            <motion.div variants={childVariants} className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-8">
-                <Globe
-                  className="w-4 h-4 text-blueprint"
-                  strokeWidth={1.5}
-                />
-
+                <Globe className="w-4 h-4 text-blueprint" strokeWidth={1.5} />
                 <h3 className="font-mono text-sm tracking-widest text-graphite uppercase">
                   Languages
                 </h3>
@@ -283,14 +237,10 @@ export default function Credentials() {
 
               <div className="flex flex-col gap-4">
                 {PORTFOLIO_DATA.languages.map((lang, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center border-b structural-border-color pb-2 group"
-                  >
+                  <div key={index} className="flex justify-between items-center border-b structural-border-color pb-2 group">
                     <span className="font-sans text-sm font-bold text-graphite uppercase group-hover:text-blueprint transition-colors">
                       {lang.language}
                     </span>
-
                     <span className="font-mono text-[11px] tracking-widest text-graphite-light uppercase">
                       {lang.level}
                     </span>
