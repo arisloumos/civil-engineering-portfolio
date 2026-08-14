@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PORTFOLIO_DATA } from "@/data";
 import { MapPin, ImageIcon, ChevronDown, ChevronUp } from "lucide-react";
 import GalleryBlock from "./GalleryBlock";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 
 // --- MOTION VARIANTS ---
 
@@ -55,17 +55,25 @@ const childVariants: Variants = {
 const galleryVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 7,
+    y: -20,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 2,
+      duration: 2.5,
       ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     },
   },
-};
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.4,
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
+    },
+  },
+};  
 
 export default function Experience() {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
@@ -109,7 +117,7 @@ export default function Experience() {
           {/* Animated line extending across */}
           <motion.div
             variants={drawLineX}
-            className="flex-grow h-[1px] bg-graphite/30 origin-left"
+            className="grow h-px bg-graphite/30 origin-left"
           />
         </motion.div>
 
@@ -129,7 +137,7 @@ export default function Experience() {
                 variants={rowVariants}
                 className={`
                   grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 md:p-8 border-b structural-border transition-colors group
-                  ${index % 2 === 0 ? "bg-transparent hover:bg-paper-dark/30" : "bg-black/[0.01] hover:bg-paper-dark/30"}
+                  ${index % 2 === 0 ? "bg-transparent hover:bg-paper-dark/30" : "bg-black/1 hover:bg-paper-dark/30"}
                 `}
               >
                 {/* COLUMN 1 — EXPERIENCE IDENTITY */}
@@ -139,7 +147,7 @@ export default function Experience() {
                   </span>
 
                   {exp.logo && (
-                    <div className="absolute -top-5 -right-3 w-[140px] h-[50px] flex items-center justify-end lg:hidden">
+                    <div className="absolute -top-5 -right-3 w-35 h-12.5 flex items-center justify-end lg:hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={exp.logo}
@@ -167,7 +175,7 @@ export default function Experience() {
                   </div>
 
                   {exp.logo && (
-                    <div className="hidden lg:flex mt-5 w-[240px] h-[70px] items-center justify-start">
+                    <div className="hidden lg:flex mt-5 w-60 h-17.5 items-center justify-start">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={exp.logo}
@@ -190,64 +198,77 @@ export default function Experience() {
                       {isExpanded ? <ChevronUp className="w-3 h-3" strokeWidth={1.5} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.5} />}
                     </button>
                   )}
+                  <AnimatePresence initial={false}>
+                    {!isExpanded || !hasImages ? (
+                      <motion.div
+                        key="achievements"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 1,
+                          delay: 0.5,
+                          ease: "easeOut",
+                        }}
+                        className="flex flex-col"
+                      >
+                        <ul className="flex flex-col gap-3">
+                          {exp.achievements.map((achievement, i) => (
+                            <li key={i} className="flex items-start gap-3 text-graphite-light text-sm md:text-base leading-relaxed">
+                              <span className="font-mono text-blueprint mt-0.5">+</span>
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
 
-                  {!isExpanded || !hasImages ? (
-                    <div className="flex flex-col">
-                      <ul className="flex flex-col gap-3">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-3 text-graphite-light text-sm md:text-base leading-relaxed">
-                            <span className="font-mono text-blueprint mt-0.5">+</span>
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2 mt-6">
-                        <span className="font-mono text-xs text-graphite-light flex items-center mr-2">
-                          TOOLS:
-                        </span>
-                        {exp.tools.map((tool, i) => (
-                          <span
-                            key={i}
-                            className="font-mono text-[10px] uppercase tracking-widest px-2 py-1 structural-border text-graphite-light bg-paper transition-all duration-200 hover:bg-graphite hover:text-paper hover:border-graphite"
-                          >
-                            {tool}
+                        <div className="flex flex-wrap gap-2 mt-6">
+                          <span className="font-mono text-xs text-graphite-light flex items-center mr-2">
+                            TOOLS:
                           </span>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <motion.div
-                      variants={galleryVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="font-mono text-[9px] tracking-[0.2em] text-graphite-light uppercase">
-                          SITE DOCUMENTATION
-                        </span>
-                        <span className="font-mono text-[10px] tracking-[0.18em] text-graphite-light tabular-nums">
-                          <span className="text-graphite/65">
-                            {String(currentGalleryIndex + 1).padStart(2, "0")}
-                          </span>
-                          <span className="mx-1 text-black/30">/</span>
-                          <span className="text-black/40">
-                            {String(exp.images.length).padStart(2, "0")}
-                          </span>
-                        </span>
-                      </div>
-
-                      <div className="w-full flex justify-center items-start">
-                        <div className="w-full aspect-[5/4] lg:w-auto lg:h-[min(520px,60vh)] lg:aspect-[5/4] shrink-0 structural-border relative overflow-hidden bg-paper-dark">
-                          <GalleryBlock
-                            images={exp.images}
-                            disableGrayscale={true}
-                            onIndexChange={(index) => updateGalleryIndex(exp.id, index)}
-                          />
+                          {exp.tools.map((tool, i) => (
+                            <span
+                              key={i}
+                              className="font-mono text-[10px] uppercase tracking-widest px-2 py-1 structural-border text-graphite-light bg-paper transition-all duration-200 hover:bg-graphite hover:text-paper hover:border-graphite"
+                            >
+                              {tool}
+                            </span>
+                          ))}
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="gallery"
+                        variants={galleryVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                      >
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-mono text-[9px] tracking-[0.2em] text-graphite-light uppercase">
+                            SITE DOCUMENTATION
+                          </span>
+                          <span className="font-mono text-[10px] tracking-[0.18em] text-graphite-light tabular-nums">
+                            <span className="text-graphite/65">
+                              {String(currentGalleryIndex + 1).padStart(2, "0")}
+                            </span>
+                            <span className="mx-1 text-black/30">/</span>
+                            <span className="text-black/40">
+                              {String(exp.images.length).padStart(2, "0")}
+                            </span>
+                          </span>
+                        </div>
+
+                        <div className="w-full flex justify-center items-start">
+                          <div className="w-full aspect-5/4 lg:w-auto lg:h-[min(520px,60vh)] lg:aspect-5/4 shrink-0 structural-border relative overflow-hidden bg-paper-dark">
+                            <GalleryBlock
+                              images={exp.images}
+                              disableGrayscale={true}
+                              onIndexChange={(index) => updateGalleryIndex(exp.id, index)}
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               </motion.div>
             );

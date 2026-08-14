@@ -204,7 +204,7 @@ export default function Footer() {
               flex-row
               lg:flex-col
               justify-between
-              lg:min-h-[150px]
+              lg:min-h-37.5
               bg-blueprint
               text-paper
               hover:bg-paper

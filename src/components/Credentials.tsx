@@ -67,7 +67,7 @@ export default function Credentials() {
           </motion.h2>
           <motion.div
             variants={drawLineX}
-            className="flex-grow h-[1px] bg-graphite/30 origin-left"
+            className="grow h-px bg-graphite/30 origin-left"
           />
         </motion.div>
 

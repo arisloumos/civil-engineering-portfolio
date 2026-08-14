@@ -52,8 +52,10 @@ const childVariants: Variants = {
 };
 
 export default function Projects() {
-  const [galleryIndexes, setGalleryIndexes] = useState<Record<string, number>>({});
-  
+  const [galleryIndexes, setGalleryIndexes] = useState<Record<string, number>>(
+    {}
+  );
+
   const updateGalleryIndex = (id: string, index: number) => {
     setGalleryIndexes((prev) => ({
       ...prev,
@@ -84,12 +86,12 @@ export default function Projects() {
 
           <motion.div
             variants={drawLineX}
-            className="flex-grow h-[1px] bg-graphite/30 origin-left"
+            className="grow h-px bg-graphite/30 origin-left"
           />
         </motion.div>
 
         {/* Projects Container */}
-        <div className="flex flex-col gap-16 md:gap-20">
+        <div className="flex flex-col gap-12 md:gap-20">
           {PORTFOLIO_DATA.projects.map((project, index) => {
             const isEven = index % 2 === 0;
             const currentGalleryIndex = galleryIndexes[project.id] ?? 0;
@@ -112,17 +114,188 @@ export default function Projects() {
                 `}
               >
 
+                {/* =====================================================
+                    MOBILE LAYOUT
+                    ===================================================== */}
+
+                <div className="lg:hidden flex flex-col">
+
+                  {/* Mobile Project Divider */}
+                  {index > 0 && (
+                    <div className="h-px w-full bg-graphite/20 mb-6" />
+                  )}
+
+                  {/* Title */}
+                  <h3
+                    className="
+                      text-2xl
+                      font-bold
+                      text-graphite
+                      mb-3
+                      leading-tight
+                      uppercase
+                      tracking-tight
+                      group-hover:text-blueprint
+                      transition-colors
+                    "
+                  >
+                    {project.title}
+                  </h3>
+
+                  {/* Project Metadata */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <span
+                      className="
+                        font-mono
+                        text-[10px]
+                        tracking-widest
+                        px-2
+                        py-1
+                        bg-graphite
+                        text-paper
+                        uppercase
+                      "
+                    >
+                      {project.type}
+                    </span>
+
+                    <span
+                      className="
+                        font-mono
+                        text-[10px]
+                        tracking-widest
+                        text-graphite-light
+                        uppercase
+                      "
+                    >
+                      // {project.methodology}
+                    </span>
+                  </div>
+
+                  {/* Image */}
+                  <div
+                    className="
+                      w-full
+                      aspect-5/4
+                      shrink-0
+                      structural-border
+                      relative
+                      overflow-hidden
+                      bg-paper-dark
+                      mb-6
+                    "
+                  >
+                    <GalleryBlock
+                      images={project.images}
+                      disableGrayscale={false}
+                      onIndexChange={(index) =>
+                        updateGalleryIndex(project.id, index)
+                      }
+                    />
+
+                    {/* Gallery Counter */}
+                    <div className="absolute bottom-4 left-4 z-50 px-2 py-1">
+                      <span className="font-mono text-[10px] tracking-[0.18em] tabular-nums text-graphite">
+                        <span className="text-paper/90">
+                          {String(currentGalleryIndex + 1).padStart(2, "0")}
+                        </span>
+
+                        <span className="mx-1 text-paper/65">/</span>
+
+                        <span className="text-paper/65">
+                          {String(project.images.length).padStart(2, "0")}
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p
+                    className="
+                      text-graphite-light
+                      text-sm
+                      leading-relaxed
+                      mb-7
+                    "
+                  >
+                    {project.description}
+                  </p>
+
+                  {/* Tools / Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span
+                      className="
+                        font-mono
+                        text-xs
+                        text-graphite-light
+                        flex
+                        items-center
+                        mr-2
+                      "
+                    >
+                      TOOLS:
+                    </span>
+
+                    {project.tools.map((tool, i) => (
+                      <span
+                        key={i}
+                        className="
+                          font-mono
+                          text-[10px]
+                          uppercase
+                          tracking-widest
+                          px-2
+                          py-1
+                          structural-border
+                          text-graphite-light
+                          bg-paper
+                        "
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Call to Action */}
+                  <button
+                    type="button"
+                    className="
+                      flex
+                      items-center
+                      gap-2
+                      w-fit
+                      border-b
+                      border-graphite
+                      pb-1
+                      font-mono
+                      text-xs
+                      tracking-widest
+                      text-graphite
+                      hover:text-blueprint
+                      hover:border-blueprint
+                      transition-colors
+                    "
+                  >
+                    VIEW SPECIFICATIONS
+
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                {/* =====================================================
+                    DESKTOP LAYOUT
+                    ===================================================== */}
+
                 {/* VISUAL / IMAGE BLOCK */}
                 <motion.div
                   variants={childVariants}
                   className="
-                    w-full
+                    hidden
+                    lg:block
                     lg:w-7/12
-                    aspect-[5/4]
-                    lg:w-auto
                     lg:flex-1
                     lg:h-[min(520px,60vh)]
-                    lg:aspect-[5/4]
+                    lg:aspect-5/4
                     shrink-0
                     structural-border
                     relative
@@ -134,7 +307,9 @@ export default function Projects() {
                   <GalleryBlock
                     images={project.images}
                     disableGrayscale={false}
-                    onIndexChange={(index) => updateGalleryIndex(project.id, index)}
+                    onIndexChange={(index) =>
+                      updateGalleryIndex(project.id, index)
+                    }
                   />
 
                   {/* Gallery Counter */}
@@ -155,9 +330,9 @@ export default function Projects() {
                 <motion.div
                   variants={childVariants}
                   className="
-                    w-full
+                    hidden
+                    lg:flex
                     lg:w-5/12
-                    flex
                     flex-col
                     justify-center
                   "

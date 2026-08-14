@@ -132,7 +132,7 @@ export default function Navbar() {
 
       {/* Scroll Progress Bar */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[3px] bg-blueprint origin-left z-[100]"
+        className="absolute bottom-0 left-0 right-0 h-0.75 bg-blueprint origin-left z-100"
         style={{ scaleX: scrollYProgress }}
       />
     </header>

@@ -72,7 +72,7 @@ export default function Hero() {
           {/* Animated X Line */}
           <motion.div
             variants={drawLineX}
-            className="w-8 h-[1px] bg-graphite/40 origin-left"
+            className="w-8 h-px bg-graphite/40 origin-left"
           />
           <motion.p variants={itemVariants} className="font-mono text-xs text-graphite-light tracking-widest uppercase">
             THESSALONIKI, GR // AUTH // 2023-2028
@@ -99,7 +99,7 @@ export default function Hero() {
               {/* Animated Y Line (replaces standard border-l) */}
               <motion.div
                 variants={drawLineY}
-                className="absolute left-0 top-0 bottom-0 w-[1px] bg-graphite/20 origin-top"
+                className="absolute left-0 top-0 bottom-0 w-px bg-graphite/20 origin-top"
               />
               <motion.p variants={itemVariants} className="text-graphite-light leading-relaxed">
                 {personal.statement}
