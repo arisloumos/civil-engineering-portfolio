@@ -37,9 +37,11 @@
     border-radius: 0px !important;
   }
 }
-
 @utility structural-border {
   border-width: 1px;
   border-style: solid;
+  border-color: rgba(24, 24, 27, 0.2);
+}
+@utility structural-border-color {
   border-color: rgba(24, 24, 27, 0.2);
 }

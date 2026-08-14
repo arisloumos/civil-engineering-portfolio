@@ -19,7 +19,7 @@ export default function NotFound() {
     : currentUrl;
 
   return (
-    <main className="flex-grow flex items-center justify-center p-6 min-h-[80vh]">
+    <main className="grow flex items-center justify-center p-6 min-h-[80vh]">
       <div className="max-w-2xl w-full border structural-border bg-paper p-8 md:p-12 relative overflow-hidden group shadow-sm">
         
         {/* Decorative CAD Corners */}
