@@ -35,7 +35,7 @@ export const PORTFOLIO_DATA = {
         "Supported engineers with quality control checks and on-site documentation.",
       ],
       tools: ["AutoCAD", "Microsoft Excel", "Microsoft Office"],
-      images: ["/ellinikon-tower.jpg", "/internship-gear.jpg"],
+      images: ["/internship-gear.jpg", "/ellinikon-tower.jpg"],
     },
     {
       id: "exp-02",
@@ -70,6 +70,26 @@ export const PORTFOLIO_DATA = {
         "Conducted and presented a case study on the Agios Georgios Wind Farm operated by Terna Energy. The program also covered renewable energy sources and energy storage systems, with practical participation in photovoltaic park design and energy yield quantification using PVGIS.",
       tools: ["PVGIS", "Renewable Energy Analysis"],
       images: ["/renewable-energies.jpg", "/granada-team.jpg"],
+    },
+    {
+      id: "prj-02",
+      title: "SMART HOME ENERGY MONITORING SYSTEM",
+      type: "IoT & Embedded Systems Project",
+      methodology: "Sensor Integration & Real-Time Data Visualization",
+      description:
+        "Designed and developed a prototype system for monitoring household energy consumption using smart sensors. The project focused on collecting real-time electrical measurements, processing the data, and presenting consumption patterns through an interactive dashboard.",
+      tools: ["Arduino", "ESP32", "IoT", "Data Visualization"],
+      images: ["/granada-team.jpg", "/renewable-energies.jpg"],
+    },
+    {
+      id: "prj-03",
+      title: "SOLAR PV SYSTEM DESIGN & PERFORMANCE ANALYSIS",
+      type: "Renewable Energy Engineering Project",
+      methodology: "Photovoltaic System Design & Energy Yield Simulation",
+      description:
+        "Developed a photovoltaic system design for a residential application, including solar resource assessment, component selection, energy production estimation, and performance analysis. The project explored how system orientation, shading, and environmental conditions affect overall PV performance.",
+      tools: ["PVGIS", "AutoCAD", "Solar PV Design", "Energy Analysis"],
+      images: ["/internship-gear.jpg", "/renewable-energies.jpg", "/granada-team.jpg"],
     },
   ],
 

@@ -70,7 +70,7 @@ export default function GalleryBlock({
           className={`object-cover w-full h-full ${
             disableGrayscale
               ? ""
-              : "grayscale group-hover:grayscale-0"
+              : "lg:grayscale lg:group-hover:grayscale-0 transition-[filter] duration-500"
           }`}
         />
       )}
