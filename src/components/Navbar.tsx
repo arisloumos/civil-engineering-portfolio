@@ -1,12 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Hexagon, Download } from "lucide-react";
+import { Hexagon, Download, Contact } from "lucide-react";
 import { motion, useScroll } from "framer-motion";
+import { PORTFOLIO_DATA } from "@/data";
+import { usePathname, useRouter } from "next/navigation"; // 1. Added Next.js router imports
 
 export default function Navbar() {
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const { scrollYProgress } = useScroll();
+  const { contact } = PORTFOLIO_DATA;
+  
+  // 2. Initialize the router and get the current path
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const footer = document.getElementById("contact");
@@ -41,8 +48,21 @@ export default function Navbar() {
   ) => {
     e.preventDefault();
 
-    const element = document.getElementById(id);
+    // 3. FIX: If we are NOT on the home page (e.g. on the 404 page), route back to home!
+    if (pathname !== "/") {
+      router.push(id === "home" ? "/" : `/#${id}`);
+      return;
+    }
 
+    // 4. FIX: If clicking the logo, scroll to the absolute top of the page safely
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", "/");
+      return;
+    }
+
+    // Normal smooth scroll if we are already on the home page
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
@@ -115,7 +135,7 @@ export default function Navbar() {
 
         {/* Right: CV Download Button */}
         <a
-          href="/CV_Karouzos_EN.pdf"
+          href={contact.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 font-mono text-xs tracking-widest structural-border px-4 py-2 bg-blueprint text-paper hover:bg-paper hover:text-graphite transition-all duration-200"
