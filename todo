@@ -12,12 +12,17 @@
 - [X] ADD ANIMATIONS (FADE/APPEAR/SCROLL)
 - [X] fix footer PROJECT/DISCIPLINE
 - [X] fix projects (same style photos, new design idea, grayscale, new placeholder project)
+- [X] fix QUALIFICATIONS & CREDENTIALS (colors & aligment)
 
 ### CURRENT
-- [ ] fix QUALIFICATIONS & CREDENTIALS (colors & aligment)
+- [ ] fix mobile view
 - [ ] fix about me aligment and conent
 
 ### FINAL
+- [ ] add VIEW SPECIFICATIONS button function (projects)
 - [ ] add final info
 - [ ] add final photos
-- [ ] add VIEW SPECIFICATIONS button function
+
+
+also add an animation so the section appears and disappears smoothly instead of instantly.
+you can take inspo for the animation i have in another section on the photo gallery "VIEW" button 
