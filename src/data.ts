@@ -154,6 +154,7 @@ export const PORTFOLIO_DATA = {
       institution: "Civil Engineering, Aristotle University of Thessaloniki",
       duration: "52 hours",
       period: "OCT 2025 - JAN 2026",
+      url: "https://courses.auth.gr/#/studyPrograms/1420?year=2025&lang=el&specializationCourse=B9895AB8-675E-4163-A395-2970DF9012F1&courseClass=F9660F6D-7844-4EC5-A444-E3884DAF92C7&view=courseOutline",
     },
     {
       id: "trn-02",
@@ -161,22 +162,28 @@ export const PORTFOLIO_DATA = {
       institution: "Civil Engineering, Aristotle University of Thessaloniki",
       duration: "52 hours",
       period: "FEB 2025 - APR 2025",
+      url: "https://courses.auth.gr/#/studyPrograms/1420?year=2025&lang=el&specializationCourse=92833935-87B2-4796-A2C8-24174CE66C22&courseClass=478B5770-C117-4F41-BB0A-0DC779A73851&view=courseOutline",
     },
   ],
+
   conferences: [
     {
       id: "conf-01",
       title: "5th Panhellenic Civil Engineering Students Conference",
       role: "Organising Committee Member",
       period: "MAR 2025",
+      url: "https://www.facebook.com/synfoititonpolmix/",
     },
+  
     {
       id: "conf-02",
       title: "19th Panhellenic Concrete Conference",
-      role: "Attendee", // Added this so the layout remains consistent
+      role: "Attendee",
       period: "NOV 2024",
+      url: "https://symvoli.com/portfolio/concrete2024/",
     },
   ],
+
   languages: [
     { language: "Greek", level: "Native" },
     { language: "English", level: "C2 - Proficient" },

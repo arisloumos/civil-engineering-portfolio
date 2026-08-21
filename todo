@@ -15,14 +15,11 @@
 - [X] fix QUALIFICATIONS & CREDENTIALS (colors & aligment)
 
 ### CURRENT
-- [ ] fix mobile view
+- [ ] fix mobile view (animation & aligment)
 - [ ] fix about me aligment and conent
+- [ ] fix gallery hide border glitch
 
 ### FINAL
 - [ ] add VIEW SPECIFICATIONS button function (projects)
 - [ ] add final info
 - [ ] add final photos
-
-
-also add an animation so the section appears and disappears smoothly instead of instantly.
-you can take inspo for the animation i have in another section on the photo gallery "VIEW" button 

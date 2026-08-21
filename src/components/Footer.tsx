@@ -258,7 +258,7 @@ export default function Footer() {
           "
         >
           <p>
-            © {currentYear} {personal.name}. All rights reserved.
+            © {currentYear} {personal.name}
           </p>
 
           <p>

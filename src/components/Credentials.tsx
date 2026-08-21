@@ -176,9 +176,14 @@ export default function Credentials() {
                       {PORTFOLIO_DATA.training.map((trn) => (
                         <div key={trn.id} className="flex flex-col gap-1 group/item">
                           <div className="flex justify-between items-start gap-4">
-                            <h4 className="font-sans text-sm font-bold text-graphite uppercase leading-tight group-hover/item:text-blueprint transition-colors">
+                            <a
+                              href={trn.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-sans text-sm font-bold text-graphite uppercase leading-tight hover:text-blueprint transition-colors"
+                            >
                               {trn.title}
-                            </h4>
+                            </a>
                             <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-0.5">
                               [{trn.period}]
                             </span>
@@ -235,16 +240,21 @@ export default function Credentials() {
                       {PORTFOLIO_DATA.conferences.map((conf) => (
                         <div key={conf.id} className="flex flex-col group/item">
                           <div className="flex justify-between items-start gap-4">
-                            <h4 className="font-sans text-sm font-bold text-graphite uppercase leading-tight group-hover/item:text-blueprint transition-colors">
+                            <a
+                              href={conf.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-sans text-sm font-bold text-graphite uppercase leading-tight hover:text-blueprint transition-colors"
+                            >
                               {conf.title}
-                            </h4>
+                            </a>
                             <span className="font-mono text-[10px] tracking-widest text-graphite-light whitespace-nowrap mt-0.5">
                               [{conf.period}]
                             </span>
                           </div>
                           {conf.role && (
                             <span className="font-mono text-[10px] tracking-widest text-blueprint uppercase mt-0.5">
-                              ROLE: {conf.role}
+                              {conf.role}
                             </span>
                           )}
                         </div>
