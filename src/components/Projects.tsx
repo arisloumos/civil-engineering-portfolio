@@ -257,8 +257,8 @@ export default function Projects() {
                   </div>
 
                   {/* Call to Action */}
-                  <button
-                    type="button"
+                  <a
+                    href={project.specificationsUrl}
                     className="
                       flex
                       items-center
@@ -279,7 +279,7 @@ export default function Projects() {
                     VIEW SPECIFICATIONS
 
                     <ArrowUpRight className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
 
                 {/* =====================================================
@@ -440,8 +440,8 @@ export default function Projects() {
                   </div>
 
                   {/* Call to Action */}
-                  <button
-                    type="button"
+                  <a
+                    href={project.specificationsUrl}
                     className="
                       flex
                       items-center
@@ -462,7 +462,7 @@ export default function Projects() {
                     VIEW SPECIFICATIONS
 
                     <ArrowUpRight className="w-4 h-4" />
-                  </button>
+                  </a>
 
                 </motion.div>
               </motion.div>

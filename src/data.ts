@@ -55,7 +55,7 @@ export const PORTFOLIO_DATA = {
         "Performed pre-measurements for architectural trades.",
         "Explored finishing solutions for architectural construction works.",
       ],
-      tools: ["AutoCAD", "Microsoft Office"],
+      tools: ["Project Management", "Sustainability", "Strategy", "Pre-measurements", "Problem Solving", "Engineering", "AutoCAD"],
       images: ["/ellinikon-tower.jpg", "/internship-gear.jpg"],
     },
   ],
@@ -67,29 +67,10 @@ export const PORTFOLIO_DATA = {
       type: "Erasmus+ Blended Intensive Program",
       methodology: "Renewable Energy Case Study & PVGIS Analysis",
       description:
-        "Conducted and presented a case study on the Agios Georgios Wind Farm operated by Terna Energy. The program also covered renewable energy sources and energy storage systems, with practical participation in photovoltaic park design and energy yield quantification using PVGIS.",
-      tools: ["PVGIS", "Renewable Energy Analysis"],
+        "Conducted and presented a case study on the Agios Georgios Wind Farm operated by Terna Energy. Attended lectures on renewable energy sources and energy storage systems, and participated in a practical workshop on photovoltaic park design and energy yield quantification using PVGIS.",
+      tools: ["PVGIS", "Renewable Energy Analysis", "Photovoltaic system design"],
       images: ["/renewable-energies.jpg", "/granada-team.jpg"],
-    },
-    {
-      id: "prj-02",
-      title: "SMART HOME ENERGY MONITORING SYSTEM",
-      type: "IoT & Embedded Systems Project",
-      methodology: "Sensor Integration & Real-Time Data Visualization",
-      description:
-        "Designed and developed a prototype system for monitoring household energy consumption using smart sensors. The project focused on collecting real-time electrical measurements, processing the data, and presenting consumption patterns through an interactive dashboard.",
-      tools: ["Arduino", "ESP32", "IoT", "Data Visualization"],
-      images: ["/granada-team.jpg", "/renewable-energies.jpg"],
-    },
-    {
-      id: "prj-03",
-      title: "SOLAR PV SYSTEM DESIGN & PERFORMANCE ANALYSIS",
-      type: "Renewable Energy Engineering Project",
-      methodology: "Photovoltaic System Design & Energy Yield Simulation",
-      description:
-        "Developed a photovoltaic system design for a residential application, including solar resource assessment, component selection, energy production estimation, and performance analysis. The project explored how system orientation, shading, and environmental conditions affect overall PV performance.",
-      tools: ["PVGIS", "AutoCAD", "Solar PV Design", "Energy Analysis"],
-      images: ["/internship-gear.jpg", "/renewable-energies.jpg", "/granada-team.jpg"],
+      specificationsUrl: "https://www.energia.polimi.it/en/news-en/paolo-colbertaldo-erasmus-bip-renewable-energies-granada-2026/",
     },
   ],
 
